@@ -871,31 +871,31 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand2 = generateMTRandom(seed, 249999);
+                rand2 = generateMTRandom(seed, 29999);
                 nSubsidy = (1 + rand2) * COIN;
         }
-        else if(nHeight < 400000)      
+        else if(nHeight < 300000)      
         {
                 cseed_str = prevHash.ToString().substr(7,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand3 = generateMTRandom(seed, 124999);
+                rand3 = generateMTRandom(seed, 19999);
                 nSubsidy = (1 + rand3) * COIN;
         }
-        else if(nHeight < 500000)      
+        else if(nHeight < 350000)      
         {
                 cseed_str = prevHash.ToString().substr(7,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand4 = generateMTRandom(seed, 62499);
+                rand4 = generateMTRandom(seed, 9999);
                 nSubsidy = (1 + rand4) * COIN;
         }
-        else if(nHeight < 600000)      
+        else if(nHeight < 400000)      
         {
                 cseed_str = prevHash.ToString().substr(6,7);
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
-                rand5 = generateMTRandom(seed, 31249);
+                rand5 = generateMTRandom(seed, 6000);
                 nSubsidy = (1 + rand5) * COIN;
         }
  

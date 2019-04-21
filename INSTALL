@@ -1,9 +1,5 @@
-Building Corgicoin
+Building Bitcoin
 
-See doc/readme-qt.rst for instructions on building Corgicoin-QT,
-the intended-for-end-users, nice-graphical-interface, reference
-implementation of CorgiCoin.
-
-See doc/build-*.txt for instructions on building corgicoind,
+See doc/build-*.md for instructions on building bitcoind,
 the intended-for-services, no-graphical-interface, reference
-implementation of CorgiCoin.
+implementation of Bitcoin.

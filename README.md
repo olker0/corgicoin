@@ -1,4 +1,4 @@
-# CorgiCoin [CORG, Ç]
+# CorgiCoin [CORG]
 http://corgicoin.ink/
 
 ![CorgiCoin](http://i.imgur.com/jx5vexy.png)

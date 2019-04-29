@@ -1,7 +1,7 @@
 # Corgicoin Core [CORG, Ð]
 ==========================
 
-![Corgicoin](http://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png)
+![CorgiCoin](http://i.imgur.com/jx5vexy.png)
 
 [![Build Status](https://travis-ci.org/corgicoin/corgicoin.svg?branch=1.7-dev)](https://travis-ci.org/corgicoin/corgicoin) [![tip for next commit](https://tip4commit.com/projects/702.svg)](https://tip4commit.com/github/corgicoin/corgicoin)
 

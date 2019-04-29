@@ -1,0 +1,27 @@
+# /etc/conf.d/corgicoind: config file for /etc/init.d/corgicoind
+
+# Config file location
+#CORGCOIND_CONFIGFILE="/etc/corgicoin/corgicoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $CORGCOIND_USER)
+#CORGCOIND_PIDDIR="/var/run/corgicoind"
+
+# What filename to give the pidfile
+#CORGCOIND_PIDFILE="${CORGCOIND_PIDDIR}/corgicoind.pid"
+
+# Where to write corgicoind data (be mindful that the blockchain is large)
+#CORGCOIND_DATADIR="/var/lib/corgicoind"
+
+# User and group to own corgicoind process
+#CORGCOIND_USER="corgicoin"
+#CORGCOIND_GROUP="corgicoin"
+
+# Path to corgicoind executable
+#CORGCOIND_BIN="/usr/bin/corgicoind"
+
+# Nice value to run corgicoind under
+#CORGCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+CORGCOIND_OPTS="-disablewallet"
+

@@ -1,0 +1,3 @@
+debian/manpages/corgicoind.1
+debian/manpages/corgicoin.conf.5
+debian/manpages/corgicoin-cli.1

@@ -1,0 +1,88 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/corgicoin/.corgicoin" ]; then
+	CORGCOIND_DEFAULT_DATADIR="/var/lib/corgicoin/.corgicoin"
+else
+	CORGCOIND_DEFAULT_DATADIR="/var/lib/corgicoind"
+fi
+
+CORGCOIND_CONFIGFILE=${CORGCOIND_CONFIGFILE:-/etc/corgicoin/corgicoin.conf}
+CORGCOIND_PIDDIR=${CORGCOIND_PIDDIR:-/var/run/corgicoind}
+CORGCOIND_PIDFILE=${CORGCOIND_PIDFILE:-${CORGCOIND_PIDDIR}/corgicoind.pid}
+CORGCOIND_DATADIR=${CORGCOIND_DATADIR:-${CORGCOIND_DEFAULT_DATADIR}}
+CORGCOIND_USER=${CORGCOIND_USER:-${CORGCOIN_USER:-corgicoin}}
+CORGCOIND_GROUP=${CORGCOIND_GROUP:-corgicoin}
+CORGCOIND_BIN=${CORGCOIND_BIN:-/usr/bin/corgicoind}
+CORGCOIND_NICE=${CORGCOIND_NICE:-${NICELEVEL:-0}}
+CORGCOIND_OPTS="${CORGCOIND_OPTS:-${CORGCOIN_OPTS}}"
+
+name="Corgicoin Core Daemon"
+description="Corgicoin cryptocurrency P2P network daemon"
+
+command="/usr/bin/corgicoind"
+command_args="-pid=\"${CORGCOIND_PIDFILE}\" \
+		-conf=\"${CORGCOIND_CONFIGFILE}\" \
+		-datadir=\"${CORGCOIND_DATADIR}\" \
+		-daemon \
+		${CORGCOIND_OPTS}"
+
+required_files="${CORGCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${CORGCOIND_USER} \
+			-N ${CORGCOIND_NICE} -w 2000"
+pidfile="${CORGCOIND_PIDFILE}"
+retry=60
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${CORGCOIND_USER}:${CORGCOIND_GROUP}" \
+	"${CORGCOIND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${CORGCOIND_USER}:${CORGCOIND_GROUP}" \
+	"${CORGCOIND_PIDDIR}"
+
+	checkpath -f \
+	-o ${CORGCOIND_USER}:${CORGCOIND_GROUP} \
+	-m 0660 \
+	${CORGCOIND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${CORGCOIND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run corgicoind."
+		eerror "The setting must appear in ${CORGCOIND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Corgicoin Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

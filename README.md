@@ -8,7 +8,7 @@
 ## What is Corgicoin? – Such coin
 Corgicoin is a cryptocurrency like Bitcoin, although it does not use SHA256 as its proof of work (POW). Taking development cues from Tenebrix and Litecoin, Corgicoin currently employs a simplified variant of scrypt.
 
-http://corgicoin.com/
+http://corgicoin.ink/
 
 ## License – Much license
 Corgicoin is released under the terms of the MIT license. See [COPYING](COPYING)

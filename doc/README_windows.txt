@@ -1,16 +1,5 @@
-Corgicoin BETA
-
-Copyright (c) 2009-2012 Bitcoin Developers
-Copyright (c) 2011-2012 Litecoin Developers
-Copyright (c) 2013-2014 Dogecoin Developers
-Copyright (c) 2013-2014 Corgicoin Developers
-
-Distributed under the MIT/X11 software license, see the accompanying
-file COPYING or http://www.opensource.org/licenses/mit-license.php.
-This product includes software developed by the OpenSSL Project for use in
-the OpenSSL Toolkit (http://www.openssl.org/).  This product includes
-cryptographic software written by Eric Young (eay@cryptsoft.com).
-
+Corgicoin Core 1.10
+==================
 
 Intro
 -----
@@ -24,16 +13,11 @@ Setup
 -----
 Unpack the files into a directory and run corgicoin-qt.exe.
 
-If you have Microsoft Security Essentials, you need to add corgicoin-qt.exe to its
-"Excluded processes" list.  Microsoft Security Essentials->Settings tab,
-select Excluded processes, press Add, select corgicoin-qt.exe, OK, Save changes.
+Corgicoin Core is the original Corgicoin client and it builds the backbone of the network.
+However, it downloads and stores the entire history of Corgicoin transactions;
+depending on the speed of your computer and network connection, the synchronization
+process can take anywhere from a few hours to a day or more.
 
-The software automatically finds other nodes to connect to.  You can
-enable Universal Plug and Play using a menu entry or set your firewall
-to forward port 9333 (TCP) to your computer so you can receive
-incoming connections.  Corgicoin works without incoming connections,
-but allowing incoming connections helps the Corgicoin network.
-
-See the bitcoin wiki at:
-  https://en.bitcoin.it/wiki/Main_Page
+See the Corgicoin wiki at:
+  https://www.reddit.com/r/corgicoin/wiki/corgicoincoreguide
 for more help and information.

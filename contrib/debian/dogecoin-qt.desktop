@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Corgicoin
+Comment=Corgicoin P2P Cryptocurrency
+Comment[fr]=Corgicoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Corgicoin, eşten eşe kriptografik sanal para birimi
+Exec=corgicoin-qt %u
+Terminal=false
+Type=Application
+Icon=corgicoin128
+MimeType=x-scheme-handler/corgicoin;
+Categories=Office;Finance;

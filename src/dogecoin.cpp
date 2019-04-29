@@ -191,9 +191,7 @@ CAmount GetCorgicoinBlockSubsidy(int nHeight, const Consensus::Params& consensus
 		
 		
 		return nSubsidy; 
-    } else if (nHeight < (6 * consensusParams.nSubsidyHalvingInterval)) {
-        // New-style constant rewards for each halving interval
-        return (500000 * COIN) >> halvings;
+   
     } else {
         // Constant inflation
         return 500 * COIN;
